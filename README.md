@@ -39,51 +39,7 @@ CardGame 是一个基于 Cocos2d-x 3.17.2 开发的纸牌游戏示例项目，�
 
 ---
 
-4. 项目结构
-
-    CardGame/
-    │
-    ├─ Classes/                  # 游戏源代码
-    │  ├─ models/                # 数据模型
-    │  │   ├─ CardModel.h/.cpp
-    │  │   ├─ GameModel.h/.cpp
-    │  │   └─ UndoModel.h/.cpp
-    │  ├─ views/                 # 视觉组件
-    │  │   ├─ CardView.h/.cpp
-    │  │   └─ GameView.h/.cpp
-    │  ├─ controllers/           # 游戏逻辑控制器
-    │  │   └─ GameController.h/.cpp
-    │  ├─ managers/              # 管理器，如 UndoManager
-    │  │   └─ UndoManager.h/.cpp
-    │  └─ configs/loaders/       # JSON 配置加载器
-    │      └─ LevelConfigLoader.h/.cpp
-    │
-    ├─ Resources/               # 游戏资源
-    │  ├─ images/                # 牌、背景等图像
-    │  └─ level_1.json           # 关卡数据
-    │
-    ├─ proj.win32/              # Windows 特定 VS 项目文件
-    └─ CMakeLists.txt           # CMake 构建配置
-
----
-
-5. 数据流示意
-
-    User Click --> GameController --> GameModel
-                       |             |
-                       v             v
-                   GameView <------ CardView
-    
-    Undo Button --> UndoManager --> UndoModel
-
-说明：
-
-- 用户点击事件由 Controller 捕获并处理。
-- Controller 更新 Model 数据并调用 View 刷新显示。
-- View 层只负责显示，不保存逻辑状态。
-- 撤销操作通过 UndoManager 操作 UndoModel 数据，并触发 View 更新。
-
-6. 总结
+4. 总结
 
 此项目示例清晰地展示了 Cocos2d-x 游戏开发的 MVC 架构方法，便于后续扩展和维护。核心是 数据、界面、逻辑分离，JSON 配置提供了灵活的关卡管理，Undo 功能提供了可回退操作，整体结构清晰、可扩展性高。
 # cardGame
